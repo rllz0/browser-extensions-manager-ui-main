@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    min-height: 100vh;
+    padding: 20px;
+
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: white;
+    border-radius: 12px;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 32px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 12px;
+    transition: filter 0.3s ease;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: hsl(227, 75%, 14%);
+}
+
+.theme-toggle {
+    background-color: hsl(0, 0%, 93%);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.extensions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: hsl(227, 75%, 14%);
+}
+
+.filter-buttons {
+    display: flex;
+    border-radius: 24px;
+    padding: 4px;
+    gap: 8px;
+}
+
+.filter-btn {
+    border: none;
+    background: white;
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    color: hsl(226, 11%, 37%);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: hsl(3, 71%, 56%);
+    color: white;
+}
+
+
+.extensions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.extension-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+.extension-top {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.extension-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.extension-info {
+    flex: 1;
+}
+
+.extension-name {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: hsl(227, 75%, 14%);
+}
+
+.extension-description {
+    font-size: 14px;
+    color: hsl(226, 11%, 37%);
+    line-height: 1.4;
+}
+
+.extension-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.remove-btn {
+    background-color: transparent;
+    border: 1px solid hsl(217, 61%, 90%);
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: hsl(226, 25%, 17%);
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: hsl(3, 71%, 56%);
+    border: 1px solid rgb(220, 53, 69);
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+
+.devlens {
+    background-color: #E8F5E9;
+}
+
+.stylespy {
+    background-color: #E3F2FD;
+}
+
+.speedboost {
+    background-color: #FFEBEE;
+}
+
+.jsonwizard {
+    background-color: #FCE4EC;
+}
+
+.tabmasterpro {
+    background-color: #EDE7F6;
+}
+
+.viewportbuddy {
+    background-color: #E1F5FE;
+}
+
+.markupnotes {
+    background-color: #E1F5FE;
+}
+
+.gridguides {
+    background-color: #EDE7F6;
+}
+
+.palettepicker {
+    background-color: #E0F2F1;
+}
+
+.linkchecker {
+    background-color: #FFF3E0;
+}
+
+.domsnapshot {
+    background-color: #E3F2FD;
+}
+
+.consoleplus {
+    background-color: #E8F5E9;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 40px;
+    color: hsl(226, 11%, 37%);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+body.dark-theme {
+    background: linear-gradient(180deg, #040918 0%, #091540 100%);
+    color: white;
+}
+
+body.dark-theme .header,
+body.dark-theme .extension-card,
+body.dark-theme .filter-buttons {
+    background-color: hsl(226, 25%, 17%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme .extension-name {
+    color: white;
+}
+
+body.dark-theme .extension-description,
+body.dark-theme .remove-btn {
+    color: hsl(0, 0%, 78%);
+}
+
+body.dark-theme .remove-btn:hover {
+    color: hsl(225, 23%, 24%);
+    background-color: rgb(220, 53, 69);
+    border: rgb(220, 53, 69);
+
+
+}
+
+.remove-btn:hover {
+    color: hsl(200, 60%, 99%);
+    background-color: rgb(220, 53, 69);
+
+}
+
+body.dark-theme .theme-toggle {
+    background-color: hsl(225, 23%, 24%);
+}
+
+body.dark-theme .remove-btn:focus,
+body.dark-theme .slider:focus,
+body.dark-theme .filter-btn:focus,
+body.dark-theme .theme-toggle:focus {
+    border: 1.5px solid rgb(220, 53, 69);
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: hsl(227, 75%, 14%);
+    transition: color 0.3s ease;
+}
+
+
+body.dark-theme .logo-text {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .extensions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .extensions-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .filter-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .extensions-grid {
+        grid-template-columns: 1fr;
+    }
+}
