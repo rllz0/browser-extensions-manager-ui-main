@@ -1,117 +1,198 @@
-# Frontend Mentor - Browser extensions manager UI solution
+# Frontend Mentor - Pricing Component Solution
 
-This is a solution to the [Browser extensions manager UI challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Pricing component with toggle challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pricing-component-with-toggle-8vPwRMIC). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Table of contents
+## Table of Contents
 
-- [Frontend Mentor - Browser extensions manager UI solution](#frontend-mentor---browser-extensions-manager-ui-solution)
-  - [Table of contents](#table-of-contents)
+- [Frontend Mentor - Pricing Component Solution](#frontend-mentor---pricing-component-solution)
+  - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
-    - [The challenge](#the-challenge)
+    - [The Challenge](#the-challenge)
     - [Screenshot](#screenshot)
     - [Links](#links)
-  - [My process](#my-process)
-    - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
-    - [Useful resources](#useful-resources)
+  - [My Process](#my-process)
+    - [Built With](#built-with)
+    - [What I Learned](#what-i-learned)
+      - [Custom Toggle Switch](#custom-toggle-switch)
+      - [Responsive Card Layout](#responsive-card-layout)
+      - [Dynamic Price Switching](#dynamic-price-switching)
+      - [Interactive Button States](#interactive-button-states)
+    - [Continued Development](#continued-development)
   - [Author](#author)
-  - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
-### The challenge
+### The Challenge
 
 Users should be able to:
 
-- Toggle extensions between active and inactive states
-- Filter active and inactive extensions
-- Remove extensions from the list
-- Select their color theme
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+- View the optimal layout for the component depending on their device's screen size
+- Control the toggle to switch between monthly and annual pricing options
+- See hover states for all interactive elements on the page
+- Calculate the correct price based on the selected billing frequency
 
 ### Screenshot
 
-![](./Frontend%20Mentor%20|%20Browser%20extensions%20manager%20UI.png)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Pricing Component Screenshot](./Frontend%20Mentor%20|%20Browser%20extensions%20manager%20UI.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/rllz0/browser-extensions-manager-ui-main.git)
-- Live Site URL: [Add live site URL here](https://rllz0.github.io/browser-extensions-manager-ui-main/)
+- Solution URL: [Add your solution URL here](https://github.com/rllz0/browser-extensions-manager-ui-main.git)
+- Live Site URL: [Add your live site URL here](https://rllz0.github.io/browser-extensions-manager-ui-main/)
 
-## My process
+## My Process
 
-### Built with
+### Built With
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- Vanilla JavaScript for toggle functionality
+- Mobile-responsive design
+- Custom toggle switch component
+- Interactive button states with hover effects
+- Linear gradients for background elements
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I Learned
 
-### What I learned
+This project provided valuable experience in several areas:
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### Custom Toggle Switch
 
-To see how you can add code snippets, see below:
+Creating a custom toggle switch with smooth transitions and hover effects:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+#cb-toggle {
+  opacity: 0;
+  position: absolute;
+}
+
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 32px;
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle:hover {
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  opacity: 0.8;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#cb-toggle:checked+.toggle::after {
+  transform: translateX(28px);
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+
+#### Responsive Card Layout
+
+Implementing a responsive pricing card layout that adapts to different screen sizes:
+
+```css
+.card-contaniner {
+  max-width: 1100px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+}
+
+@media (max-width: 1023px) and (min-width: 376px) {
+  .card-contaniner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .basic,
+  .professional,
+  .master {
+    width: 100%;
+  }
+
+  .professional {
+    transform: none;
+  }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+#### Dynamic Price Switching
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+Implementing JavaScript to dynamically switch between monthly and annual pricing:
 
-### Continued development
+```javascript
+function updatePriceDisplay() {
+  if (toggle.checked) {
+    // Monthly pricing
+    monthlyPrices.forEach(price => price.style.display = 'block');
+    annuallyPrices.forEach(price => price.style.display = 'none');
+  } else {
+    // Annual pricing
+    monthlyPrices.forEach(price => price.style.display = 'none');
+    annuallyPrices.forEach(price => price.style.display = 'block');
+  }
+}
+```
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+#### Interactive Button States
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+Creating interactive hover states for buttons that differ based on their parent card:
 
-### Useful resources
+```javascript
+buttons.forEach(button => {
+  button.addEventListener('mouseenter', function() {
+    if (this.parentElement.classList.contains('professional')) {
+      this.style.border = '1px solid white';
+      this.style.background = 'transparent';
+      this.style.color = 'white';
+    } else {
+      this.style.border = '1px solid hsl(237, 63%, 64%)';
+      this.style.background = 'transparent';
+      this.style.color = 'hsl(237, 63%, 64%)';
+    }
+  });
+  
+  button.addEventListener('mouseleave', function() {
+    if (this.parentElement.classList.contains('professional')) {
+      this.style.border = 'none';
+      this.style.background = 'white';
+      this.style.color = 'hsl(237, 63%, 64%)';
+    } else {
+      this.style.border = 'none';
+      this.style.background = 'linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))';
+      this.style.color = 'white';
+    }
+  });
+});
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+### Continued Development
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+Areas I want to focus on in future projects include:
+
+- Improving accessibility features, particularly for the toggle switch
+- Adding more advanced animations and transitions
+- Implementing additional pricing tiers and features
+- Adding a dark/light theme toggle
+- Enhancing the mobile responsive design further
+- Exploring CSS Grid for more complex layouts
+- Using CSS variables for more consistent theming
 
 ## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
